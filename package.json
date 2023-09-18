@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "clean": "rm -rf .cache public/images && mkdir .cache && mkdir public/images",
+    "export": "next build && next export",
+    "serve": "next export && serve ./out"
   },
   "dependencies": {
     "@types/node": "20.6.0",
@@ -17,6 +20,7 @@
     "next": "13.4.19",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typescript": "5.2.2"
+    "typescript": "5.2.2",
+    "notionate": "10.0.1"
   }
 }

@@ -1,0 +1,104 @@
+.photoLicense {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #000;
+  color: #aaa;
+  font-family: var(--font-family-en);
+  font-style: bold;
+  font-size: .8rem;
+  padding: .2rem .5rem;
+  margin-right: .5rem;
+}
+.photoLicense svg {
+  width: 20px;
+  margin-right: .4rem;
+  vertical-align: middle;
+  fill: #fff;
+  opacity: 0.7;
+}
+
+.header {
+  margin: 0;
+  padding: 3rem 6rem;
+}
+
+.logo {
+  display: block;
+  margin: 0;
+  width: 200px;
+  text-align: center;
+}
+.logo a {
+  text-decoration: none;
+}
+
+.logoText {
+  display: block;
+}
+
+.logoIcon {
+  display: block;
+  margin-left: 1rem;
+}
+
+.footer {
+  padding: 2rem 0 4rem;
+  margin: 0 6rem;
+  border-top: 2px solid rgba(255, 255, 255, .2);
+  color: #aaa;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, .4);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  margin: 3rem;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+  overflow: hidden;
+}
+
+.snsNav {
+  width: 420px;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  color: rgba(255, 255, 255, .7);
+}
+.snsNav ul {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  border: 2px solid rgba(255, 255, 255, .4);
+  padding: .7rem 1.2rem;
+  border-radius: 30px;
+}
+.snsNav li {
+  display: block;
+  text-align: center;
+  font-size: .8rem;
+  font-family: var(--font-family-en);
+}
+.snsNav svg  {
+  width: 30px;
+  margin-right: .2rem;
+  vertical-align: middle;
+  fill: #000;
+  opacity: 0.3;
+}
+
+@media (prefers-color-scheme: dark) {
+  .photoLicense {
+    background-color: #fff;
+    color: #333;
+  }
+  .photoLicense svg {
+    fill: #000;
+  }
+  .container {
+    background-color: rgba(0, 0, 0, .4);
+  }
+  .snsNav svg  {
+    fill: #fff;
+  }
+}
