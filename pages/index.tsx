@@ -13,7 +13,8 @@ import {
   QueryDatabaseParameters,
   RichTextItemResponse,
   SelectPropertyResponse,
-  UrlPropertyItemObjectResponse,
+  PersonUserObjectResponseEx,
+  PageObjectResponseEx,
   DBPageBase,
   Link as NLink,
 } from 'notionate'
@@ -28,7 +29,7 @@ type Props = {
   eve: ListBlockChildrenResponseEx,
   team: ListBlockChildrenResponseEx,
   events: QueryDatabaseResponseEx,
-  members: QueryDatabaseResponseEx,
+  members: Member[],
 }
 
 type Member = {
@@ -85,8 +86,9 @@ const getContent = async (title: string): Promise<ListBlockChildrenResponseEx> =
     database_id: process.env.NOTION_CONTENTS_DB_ID,
   } as QueryDatabaseParameters)
   const page = results.find(v => {
-    return v.properties.Name.title.map(v => v.plain_text).join(',') === title
-  })
+    const p = v as DBPropsMembers
+    return p.properties.Name.title.map(v => v.plain_text).join(',') === title
+  }) as PageObjectResponseEx
   return await FetchBlocks(page.id, page.last_edited_time)
 }
 
@@ -137,7 +139,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   }
 }
 
-export default function Home({ about, coc, eve, team, events, members }) {
+export default function Home({ about, coc, eve, team, events, members }: Props) {
   return (
     <>
       <Head>

@@ -8,6 +8,11 @@ import 'notionate/dist/styles/notionate-dark.css'
 import { Poppins, Zen_Kaku_Gothic_New } from 'next/font/google'
 import Icon from '@/components/icon'
 
+type Photos = {
+  light: string,
+  dark: string,
+}
+
 const lightPhotos: string[] = [
   '/light/pink-flowers.jpg',
   '/light/yellow-flowers.jpg',
@@ -28,7 +33,7 @@ const getPhoto = (): { light: string, dark: string } => {
 
 const poppins = Poppins({ weight: ['400', '600'], subsets: ['latin'] })
 const zenkaku = Zen_Kaku_Gothic_New({ weight: '400', subsets: ['latin-ext'] })
-const getStyles = ({ light, dark }) => {
+const getStyles = ({ light, dark }: Photos): string => {
   return `
 :root {
   --font-family-en: ${poppins.style.fontFamily};
