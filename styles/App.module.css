@@ -45,8 +45,8 @@
 .footer {
   padding: 2rem 0 4rem;
   margin: 0 6rem;
-  border-top: 2px solid rgba(255, 255, 255, .2);
-  color: #aaa;
+  border-top: 2px solid rgba(0, 0, 0, .2);
+  color: rgba(0, 0, 0, .5);
 }
 
 .container {
@@ -63,13 +63,13 @@
   position: absolute;
   top: 2rem;
   right: 2rem;
-  color: rgba(255, 255, 255, .7);
+  color: rgba(0, 0, 0, .7);
 }
 .snsNav ul {
   list-style-type: none;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  border: 2px solid rgba(255, 255, 255, .4);
+  border: 2px solid rgba(0, 0, 0, .2);
   padding: .7rem 1.2rem;
   border-radius: 30px;
 }
@@ -98,7 +98,17 @@
   .container {
     background-color: rgba(0, 0, 0, .4);
   }
+  .snsNav {
+    color: rgba(255, 255, 255, .7);
+  }
+  .snsNav ul {
+    border: 2px solid rgba(255, 255, 255, .4);
+  }
   .snsNav svg  {
     fill: #fff;
+  }
+  .footer {
+    border-color: rgba(255, 255, 255, .2);
+    color: #aaa;
   }
 }
