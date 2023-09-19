@@ -2,7 +2,7 @@ import {
   FetchDatabase,
   QueryDatabaseParameters,
   PersonUserObjectResponseEx,
-  SelectPropertyResponse,
+  DateResponse,
   RichTextItemResponse,
   DBPageBase,
 } from 'notionate'
@@ -25,7 +25,7 @@ export type DBPropsMembers = DBPageBase & {
     }
     'Joined at': {
       type: "date"
-      select: SelectPropertyResponse
+      date: DateResponse | null
       id: string
     }
     X: {

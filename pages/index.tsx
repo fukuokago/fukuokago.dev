@@ -7,6 +7,7 @@ import Icon from '@/components/icon'
 import { GetPhoto } from '@/lib/photos'
 import { GetEvents } from '@/lib/events'
 import { GetMembers, Member } from '@/lib/members'
+import { GetFacts, Fact } from '@/lib/facts'
 import { GetContent } from '@/lib/contents'
 import {
   ListBlockChildrenResponseEx,
@@ -15,6 +16,7 @@ import {
 } from 'notionate'
 import {
   Blocks,
+  TextBlock,
   Table,
 } from 'notionate/dist/components'
 
@@ -25,6 +27,7 @@ type Props = {
   team: ListBlockChildrenResponseEx,
   events: QueryDatabaseResponseEx,
   members: Member[],
+  facts: Fact[],
   light: string,
   dark: string,
 }
@@ -36,6 +39,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const team = await GetContent('Team')
   const events = await GetEvents()
   const members = await GetMembers()
+  const facts = await GetFacts()
   const { light, dark } = GetPhoto()
 
   return {
@@ -46,13 +50,14 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       team,
       events,
       members,
+      facts,
       light,
       dark,
     }
   }
 }
 
-export default function Home({ about, coc, eve, team, events, members, light, dark }: Props) {
+export default function Home({ about, coc, eve, team, events, members, facts, light, dark }: Props) {
   return (
     <>
       <Head>
@@ -65,6 +70,26 @@ export default function Home({ about, coc, eve, team, events, members, light, da
       <main className={styles.main}>
         <div className={styles.aboutus}>
           <Blocks blocks={about} />
+        </div>
+
+        <div className={styles.facts}>
+          <div className={styles.factCards}>
+            {facts.map((f, i) => (
+              <div className={styles.factCard} key={i}>
+                <div>
+                  <span className={styles.factName}>
+                    <Icon name={f.icon} />{` `}
+                    {f.name}
+                  </span>
+                  <span className={styles.factNumber}>{f.number}</span>
+                  <span className={styles.factUnit}>{f.unit}</span>
+                </div>
+                <div className={styles.factDesc}>
+                  <TextBlock tag="span" block={f.description} />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className={`notionate-table-home ${styles.events}`}>
@@ -82,7 +107,7 @@ export default function Home({ about, coc, eve, team, events, members, light, da
           </div>
           <div className={styles.memberCards}>
           {members.map((m, i) => (
-            <div className={styles.card} key={i}>
+            <div className={styles.memberCard} key={i}>
               <div className={styles.cardGo}>
                 <Icon name="go" />
               </div>

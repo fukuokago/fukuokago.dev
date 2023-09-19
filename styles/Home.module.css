@@ -20,6 +20,35 @@
   font-size: 1.4rem;
 }
 
+/* FACTS */
+.facts {
+  margin-top: 4rem;
+}
+.factCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2.25rem;
+}
+.factName {
+  display: block;
+  margin-bottom: -1rem;
+  opacity: .6;
+}
+.factName svg {
+  fill: #000;
+  vertical-align: middle;
+  margin-right: .5rem;
+  margin-bottom: .3rem;
+}
+.factNumber {
+  font-family: var(--font-family-en);
+  font-size: 5rem;
+  font-weight: bold;
+}
+.factDesc {
+  opacity: .6;
+}
+
 /* EVENTS */
 .events {
   margin-top: 2rem;
@@ -34,14 +63,13 @@
 /* MEMBERS */
 .members {
   margin-top: 2rem;
-  display: grid;
 }
 .memberCards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 2.25rem;
 }
-.card {
+.memberCard {
   border: 2px solid;
   border-radius: 15px;
   border-color: rgba(0, 0, 0, .2);
@@ -69,7 +97,7 @@
   border-radius: 50px;
   margin-left: 1rem;
 }
-.card h3 {
+.memberCard h3 {
   padding: .2rem 2rem .5rem;
   font-size: 1.5rem;
   text-align: right;
@@ -114,10 +142,13 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .card {
+  .factName svg {
+    fill: #fff;
+  }
+  .memberCard {
     border-color: rgba(255, 255, 255, .2);
   }
-  .card:hover {
+  .memberCard:hover {
     border-color: rgba(255, 255, 255, .4);
   }
   .cardGo svg {
