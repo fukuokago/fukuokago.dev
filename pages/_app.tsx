@@ -8,45 +8,10 @@ import 'notionate/dist/styles/notionate-dark.css'
 import { Poppins, Zen_Kaku_Gothic_New } from 'next/font/google'
 import Icon from '@/components/icon'
 
-type Photos = {
-  light: string,
-  dark: string,
-}
-
-const lightPhotos: string[] = [
-  '/light/pink-flowers.jpg',
-  '/light/yellow-flowers.jpg',
-  '/light/green-valley.jpg',
-]
-const darkPhotos: string[] = [
-  '/dark/rocks.jpg',
-  '/dark/weave.jpg',
-  '/dark/shine.jpg',
-]
-const getPhoto = (): { light: string, dark: string } => {
-  const n = new Date().getHours() % 3
-  return {
-    light: lightPhotos[n],
-    dark: darkPhotos[n],
-  }
-}
-
 const poppins = Poppins({ weight: ['400', '600'], subsets: ['latin'] })
 const zenkaku = Zen_Kaku_Gothic_New({ weight: '400', subsets: ['latin-ext'] })
-const getStyles = ({ light, dark }: Photos): string => {
-  return `
-:root {
-  --font-family-en: ${poppins.style.fontFamily};
-  --font-family-ja: ${zenkaku.style.fontFamily};
-}
-body { background-image: url(/static${light}); }
-@media (prefers-color-scheme: dark) {
-  body { background-image: url(/static${dark}); }
-}
-`}
 
 export default function App({ Component, pageProps }: AppProps) {
-  const css = getStyles(getPhoto())
   return (
     <>
       <div className={styles.photoLicense}>
@@ -95,9 +60,14 @@ export default function App({ Component, pageProps }: AppProps) {
             Illustrations by <a href="https://github.com/keitakawamoto">@keitakawamoto</a>
           </p>
         </footer>
-
-        <style jsx global>{css}</style>
       </div>
+
+      <style jsx global>{`
+        :root {
+          --font-family-en: ${poppins.style.fontFamily};
+          --font-family-ja: ${zenkaku.style.fontFamily};
+        }
+      `}</style>
     </>
   )
 }

@@ -4,18 +4,13 @@ import Image from 'next/image'
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import Icon from '@/components/icon'
-import 'notionate/dist/styles/notionate.css'
+import { GetPhoto } from '@/lib/photos'
+import { GetEvents } from '@/lib/events'
+import { GetMembers, Member } from '@/lib/members'
+import { GetContent } from '@/lib/contents'
 import {
-  FetchBlocks,
-  FetchDatabase,
   ListBlockChildrenResponseEx,
   QueryDatabaseResponseEx,
-  QueryDatabaseParameters,
-  RichTextItemResponse,
-  SelectPropertyResponse,
-  PersonUserObjectResponseEx,
-  PageObjectResponseEx,
-  DBPageBase,
   Link as NLink,
 } from 'notionate'
 import {
@@ -30,102 +25,18 @@ type Props = {
   team: ListBlockChildrenResponseEx,
   events: QueryDatabaseResponseEx,
   members: Member[],
-}
-
-type Member = {
-  id: string
-  name: string
-  avatar: string | null
-  x: string | null
-  github: string | null
-  website: string | null
-}
-
-type DBPropsMembers = DBPageBase & {
-  properties: {
-    Name: {
-      type: "title"
-      title: RichTextItemResponse[]
-      id: string
-    }
-    'Joined at': {
-      type: "date"
-      select: SelectPropertyResponse
-      id: string
-    }
-    X: {
-      type: "url"
-      url: string | null
-      id: string
-    }
-    GitHub: {
-      type: "url"
-      url: string | null
-      id: string
-    }
-    Website: {
-      type: "url"
-      url: string | null
-      id: string
-    }
-    Person: {
-      type: "people"
-      people: PersonUserObjectResponseEx[]
-      id: string
-    }
-    Published: {
-      type: "checkbox"
-      checkbox: boolean
-      id: string
-    }
-  }
-}
-
-const getContent = async (title: string): Promise<ListBlockChildrenResponseEx> => {
-  const { results } = await FetchDatabase({
-    database_id: process.env.NOTION_CONTENTS_DB_ID,
-  } as QueryDatabaseParameters)
-  const page = results.find(v => {
-    const p = v as DBPropsMembers
-    return p.properties.Name.title.map(v => v.plain_text).join(',') === title
-  }) as PageObjectResponseEx
-  return await FetchBlocks(page.id, page.last_edited_time)
-}
-
-const getMembers = async (): Promise<Member[]> => {
-  const { results } = await FetchDatabase({
-    database_id: process.env.NOTION_MEMBERS_DB_ID,
-    filter: { property: 'Published', checkbox: { equals: true }, },
-    sorts: [ { property: 'Joined at', direction: 'descending' }, ],
-  } as QueryDatabaseParameters)
-
-  return results.map(v => {
-    const props = (v as DBPropsMembers).properties
-    return {
-      id: v.id,
-      name: props.Name.title.map(v => v.plain_text).join(',') || '',
-      avatar: props.Person.people.length > 0 ? props.Person.people.map(v => v.avatar)[0] : null,
-      x: props.X.url,
-      github: props.GitHub.url,
-      website: props.Website.url,
-    } as Member
-  })
-}
-
-const getEvents = async (): Promise<QueryDatabaseResponseEx> => {
-  return await FetchDatabase({
-    database_id: process.env.NOTION_EVENTS_DB_ID,
-    sorts: [ { property: 'Date', direction: 'descending' }, ],
-  } as QueryDatabaseParameters)
+  light: string,
+  dark: string,
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const about = await getContent('About')
-  const coc = await getContent('Code of Conduct')
-  const eve = await getContent('Events')
-  const team = await getContent('Team')
-  const events = await getEvents()
-  const members = await getMembers()
+  const about = await GetContent('About')
+  const coc = await GetContent('Code of Conduct')
+  const eve = await GetContent('Events')
+  const team = await GetContent('Team')
+  const events = await GetEvents()
+  const members = await GetMembers()
+  const { light, dark } = GetPhoto()
 
   return {
     props: {
@@ -135,11 +46,13 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       team,
       events,
       members,
+      light,
+      dark,
     }
   }
 }
 
-export default function Home({ about, coc, eve, team, events, members }: Props) {
+export default function Home({ about, coc, eve, team, events, members, light, dark }: Props) {
   return (
     <>
       <Head>
@@ -206,6 +119,13 @@ export default function Home({ about, coc, eve, team, events, members }: Props) 
           </div>
         </div>
       </main>
+
+      <style jsx global>{`
+        body { background-image: url(/static${light}); }
+        @media (prefers-color-scheme: dark) {
+          body { background-image: url(/static${dark}); }
+        }
+      `}</style>
     </>
   )
 }
