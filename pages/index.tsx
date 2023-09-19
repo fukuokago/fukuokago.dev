@@ -28,8 +28,6 @@ type Props = {
   events: QueryDatabaseResponseEx,
   members: Member[],
   facts: Fact[],
-  light: string,
-  dark: string,
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
@@ -40,7 +38,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const events = await GetEvents()
   const members = await GetMembers()
   const facts = await GetFacts()
-  const { light, dark } = GetPhoto()
 
   return {
     props: {
@@ -51,13 +48,12 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       events,
       members,
       facts,
-      light,
-      dark,
     }
   }
 }
 
-export default function Home({ about, coc, eve, team, events, members, facts, light, dark }: Props) {
+export default function Home({ about, coc, eve, team, events, members, facts }: Props) {
+  const { light, dark } = GetPhoto()
   return (
     <>
       <Head>
@@ -67,7 +63,7 @@ export default function Home({ about, coc, eve, team, events, members, facts, li
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <main className={`fukuokago ${styles.main}`}>
         <div className={styles.aboutus}>
           <Blocks blocks={about} />
         </div>

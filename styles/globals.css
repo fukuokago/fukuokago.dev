@@ -103,10 +103,26 @@ h5 { font-size: 1rem; }
 .notionate-table-home .notionate-table-cell-inner {
   border-right-color: rgba(0, 0, 0, 0.1);
 }
+.fukuokago .notionate-blocks-text-anchor {
+  color: inherit;
+  border-color: inherit;
+}
+.fukuokago .notionate-blocks-bookmark-inner {
+  border-color: rgba(0, 0, 0, .3);
+}
+.fukuokago .notionate-blocks-bookmark-desc {
+  color: rgba(0, 0, 0, .5);
+}
 
 @media (prefers-color-scheme: dark) {
   .notionate-table-home .notionate-table-row,
   .notionate-table-home .notionate-table-date {
     color: rgba(255, 255, 255, 0.7);
+  }
+  .fukuokago .notionate-blocks-bookmark-inner {
+    border-color: rgba(255, 255, 255, .7);
+  }
+  .fukuokago .notionate-blocks-bookmark-desc {
+    color: rgba(255, 255, 255, .7);
   }
 }

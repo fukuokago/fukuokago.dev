@@ -12,6 +12,7 @@ const poppins = Poppins({ weight: ['400', '600'], subsets: ['latin'] })
 const zenkaku = Zen_Kaku_Gothic_New({ weight: '400', subsets: ['latin-ext'] })
 
 export default function App({ Component, pageProps }: AppProps) {
+  const nowYear = new Date().getFullYear()
   return (
     <>
       <div className={styles.photoLicense}>
@@ -56,8 +57,10 @@ export default function App({ Component, pageProps }: AppProps) {
 
         <footer className={styles.footer}>
           <p className={poppins.className}>
-            &copy; Fukuoka.go. The Go gopher was designed by <a href="http://reneefrench.blogspot.com/">Renee French</a>.
-            Illustrations by <a href="https://github.com/keitakawamoto">@keitakawamoto</a>
+            &copy; {nowYear} Fukuoka.go.{` `}
+            The Go gopher was designed by <a href="http://reneefrench.blogspot.com/">Renee French</a>.{` `}
+            Illustrations by <a href="https://github.com/keitakawamoto">@keitakawamoto</a>.{` `}
+            Powered by Next.js and Notion with <a href="https://github.com/linyows/notionate">Notionate</a>.
           </p>
         </footer>
       </div>
