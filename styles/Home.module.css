@@ -22,7 +22,7 @@
 
 /* FACTS */
 .facts {
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 .factCards {
   display: grid;
@@ -51,7 +51,7 @@
 
 /* EVENTS */
 .events {
-  margin-top: 2rem;
+  margin-top: 6rem;
   padding: 1rem 0;
   overflow: hidden;
 }
@@ -134,7 +134,41 @@
 }
 
 /* Mobile */
-@media (max-width: 700px) {
+@media (max-width: 810px) {
+  .main {
+    padding: 0 1rem 1rem;
+  }
+  .aboutus {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .aboutus p {
+    font-size: 1rem;
+  }
+
+  .factCards {
+    text-align: center;
+  }
+  .factNumber {
+    font-size: 4rem;
+  }
+  .factDesc {
+    text-align: left;
+    margin-top: -.5rem;
+  }
+
+  .events {
+    margin-top: 2rem;
+  }
+
+  .members {
+    margin-top: 0;
+  }
+
+  .coc {
+    margin-top: 2rem;
+  }
 }
 
 /* Tablet and Smaller Desktop */
