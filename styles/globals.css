@@ -1,36 +1,16 @@
 :root {
-  --max-width: 1100px;
-  --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
-
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 255, 255, 255;
-  --background-end-rgb: 205, 205, 205;
-
-  --tile-start-rgb: 239, 245, 249;
-  --tile-end-rgb: 228, 232, 233;
-
-  --callout-rgb: 238, 240, 241;
-  --callout-border-rgb: 172, 175, 176;
-  --card-rgb: 180, 185, 188;
-  --card-border-rgb: 131, 134, 135;
+  --background-rgb: 255, 255, 255;
+  --foreground-color: #000;
+  --background-color: #fff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-
-    --tile-start-rgb: 2, 13, 46;
-    --tile-end-rgb: 2, 5, 19;
-
-    --callout-rgb: 20, 20, 20;
-    --callout-border-rgb: 108, 108, 108;
-    --card-rgb: 100, 100, 100;
-    --card-border-rgb: 200, 200, 200;
+    --background-rgb: 0, 0, 0;
+    --foreground-color: #000;
+    --background-color: #fff;
   }
 }
 
@@ -57,8 +37,8 @@ body {
 
 a {
   color: inherit;
-  border-bottom: 1px solid fgba(0, 0, 0, .8);
 }
+
 a:hover {
   text-decoration: none;
   opacity: .7;
@@ -94,35 +74,35 @@ h5 { font-size: 1rem; }
 }
 .notionate-table-home .notionate-table-row,
 .notionate-table-home .notionate-table-date {
-  color: rgba(0, 0, 0, 1);
+  color: rgba(var(--foreground-rgb), 1);
 }
 .notionate-table-home .notionate-table-row {
   border-top-color: rgba(100, 100, 100);
   box-shadow: black -3px 0 0, rgba(100, 100, 100) 0 1px 0;
 }
 .notionate-table-home .notionate-table-cell-inner {
-  border-right-color: rgba(0, 0, 0, 0.1);
+  border-right-color: rgba(var(--foreground-rgb), .1);
 }
 .fukuokago .notionate-blocks-text-anchor {
   color: inherit;
   border-color: inherit;
 }
 .fukuokago .notionate-blocks-bookmark-inner {
-  border-color: rgba(0, 0, 0, .3);
+  border-color: rgba(var(--foreground-rgb), .3);
 }
 .fukuokago .notionate-blocks-bookmark-desc {
-  color: rgba(0, 0, 0, .5);
+  color: rgba(var(--foreground-rgb), .5);
 }
 
 @media (prefers-color-scheme: dark) {
   .notionate-table-home .notionate-table-row,
   .notionate-table-home .notionate-table-date {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(var(--foreground-rgb), .7);
   }
   .fukuokago .notionate-blocks-bookmark-inner {
-    border-color: rgba(255, 255, 255, .7);
+    border-color: rgba(var(--foreground-rgb), .7);
   }
   .fukuokago .notionate-blocks-bookmark-desc {
-    color: rgba(255, 255, 255, .7);
+    color: rgba(ar(--foreground-rgb), .7);
   }
 }

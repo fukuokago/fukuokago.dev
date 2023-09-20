@@ -35,7 +35,7 @@
   opacity: .6;
 }
 .factName svg {
-  fill: #000;
+  fill: var(--foreground-color);
   vertical-align: middle;
   margin-right: .5rem;
   margin-bottom: .3rem;
@@ -72,12 +72,12 @@
 .memberCard {
   border: 2px solid;
   border-radius: 15px;
-  border-color: rgba(0, 0, 0, .2);
+  border-color: rgba(var(--foreground-rgb), .2);
   padding: 1rem 0 .5rem;
   position: relative;
 }
-.card:hover {
-  border-color: rgba(0, 0, 0, .4);
+.memberCard:hover {
+  border-color: rgba(var(--foreground-rgb), .4);
 }
 .cardGo {
   position: absolute;
@@ -86,7 +86,7 @@
 }
 .cardGo svg {
   height: 70px;
-  fill: #000;
+  fill: var(--foreground-color);
   opacity: .3;
 }
 .avatar {
@@ -105,7 +105,7 @@
 .linkIcons {
   list-style-type: none;
   border-top: 2px solid;
-  border-color: rgba(0, 0, 0, .2);
+  border-color: rgba(var(--foreground-rgb), .2);
   padding: .7rem 2rem 0;
   text-align: right;
 }
@@ -114,11 +114,11 @@
   margin-left: 1rem;
 }
 .icon  {
-  fill: #000;
-  opacity: 0.3;
+  fill: var(--foreground-color);
+  opacity: .3;
 }
 .icon:hover  {
-  opacity: 0.7;
+  opacity: .7;
 }
 
 /* CODE OF CONDUCT */
@@ -142,22 +142,4 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .factName svg {
-    fill: #fff;
-  }
-  .memberCard {
-    border-color: rgba(255, 255, 255, .2);
-  }
-  .memberCard:hover {
-    border-color: rgba(255, 255, 255, .4);
-  }
-  .cardGo svg {
-    fill: #fff;
-  }
-  .linkIcons {
-    border-color: rgba(255, 255, 255, .2);
-  }
-  .icon  {
-    fill: #fff;
-  }
 }
