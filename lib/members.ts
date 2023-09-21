@@ -13,6 +13,7 @@ export type Member = {
   avatar: string | null
   x: string | null
   github: string | null
+  dribbble: string | null
   website: string | null
 }
 
@@ -34,6 +35,11 @@ export type DBPropsMembers = DBPageBase & {
       id: string
     }
     GitHub: {
+      type: "url"
+      url: string | null
+      id: string
+    }
+    Dribbble: {
       type: "url"
       url: string | null
       id: string
@@ -71,6 +77,7 @@ export const GetMembers = async (): Promise<Member[]> => {
       avatar: props.Person.people.length > 0 ? props.Person.people.map(v => v.avatar)[0] : null,
       x: props.X.url,
       github: props.GitHub.url,
+      dribbble: props.Dribbble.url,
       website: props.Website.url,
     } as Member
   })

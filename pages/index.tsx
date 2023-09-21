@@ -140,6 +140,11 @@ export default function Home({ about, coc, eve, team, events, members, facts, og
                     <Icon name="github" />
                   </a>
                 </li>}
+                {m.dribbble && <li className={styles.icon}>
+                  <a href={m.dribbble}>
+                    <Icon name="dribbble" />
+                  </a>
+                </li>}
                 {m.website && <li className={styles.icon}>
                   <a href={m.website}>
                     <Icon name="globe" />
