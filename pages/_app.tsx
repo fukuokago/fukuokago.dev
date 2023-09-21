@@ -22,13 +22,6 @@ export default function App({ Component, pageProps }: AppProps) {
 
       <div className={styles.container}>
         <header className={styles.header}>
-          <h1 className={`${styles.logo} ${poppins.className}`}>
-            <Link href="/">
-              <Image className={styles.logoIcon} src="/static/fukuoka-gopher.svg" alt="Fukuoka.go Logo" width={200} height={202} priority />
-              <span className={styles.logoText}>Fukuoka.go</span>
-            </Link>
-          </h1>
-
           <nav className={styles.snsNav}>
             <ul>
               <li>
@@ -51,6 +44,13 @@ export default function App({ Component, pageProps }: AppProps) {
               </li>
             </ul>
           </nav>
+
+          <h1 className={`${styles.logo} ${poppins.className}`}>
+            <Link href="/">
+              <Image className={styles.logoIcon} src="/static/fukuoka-gopher.svg" alt="Fukuoka.go Logo" width={200} height={202} priority />
+              <span className={styles.logoText}>Fukuoka.go</span>
+            </Link>
+          </h1>
         </header>
 
         <Component {...pageProps} />
