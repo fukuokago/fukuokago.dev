@@ -58,8 +58,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
 export default function Home({ about, coc, eve, team, events, members, facts, ogimage }: Props) {
   const { light, dark } = GetPhoto()
-  const title = 'Fukuoka.go - A gopher community in Fukuoka'
-  const desc = 'fmt.Println("Hello, 世界")'
+  const title = 'Fukuoka.go'
+  const desc = 'A gopher community in Fukuoka'
   const url = 'https://fukuokago.dev'
   return (
     <>
@@ -67,6 +67,9 @@ export default function Home({ about, coc, eve, team, events, members, facts, og
         <title>{title}</title>
         <meta name="description" content={desc} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="twitter:image" content={`${url}/${ogimage}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@fukuokago" />
         <meta property="og:site_name" content={title} />
         <meta property="og:description" content={desc} />
         <meta property="og:image" content={`${url}/${ogimage}`} />
@@ -135,6 +138,11 @@ export default function Home({ about, coc, eve, team, events, members, facts, og
                 {m.github && <li className={styles.icon}>
                   <a href={m.github}>
                     <Icon name="github" />
+                  </a>
+                </li>}
+                {m.dribbble && <li className={styles.icon}>
+                  <a href={m.dribbble}>
+                    <Icon name="dribbble" />
                   </a>
                 </li>}
                 {m.website && <li className={styles.icon}>
