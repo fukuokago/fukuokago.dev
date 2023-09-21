@@ -58,8 +58,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
 export default function Home({ about, coc, eve, team, events, members, facts, ogimage }: Props) {
   const { light, dark } = GetPhoto()
-  const title = 'Fukuoka.go - A gopher community in Fukuoka'
-  const desc = 'fmt.Println("Hello, 世界")'
+  const title = 'Fukuoka.go'
+  const desc = 'A gopher community in Fukuoka'
   const url = 'https://fukuokago.dev'
   return (
     <>

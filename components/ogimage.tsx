@@ -53,7 +53,7 @@ const footerUrlStyle = {
 }
 
 const OgImage: FC<Props> = ({ title }) => {
-  const name = 'Fukuokago.dev'
+  const name = 'Fukuoka.go'
   const iconSrc = `https://github.com/fukuokago.png`
   const url = 'https://fukuokago.dev'
 
