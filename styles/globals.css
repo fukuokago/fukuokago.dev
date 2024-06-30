@@ -60,49 +60,49 @@ h3 { font-size: 1.5rem; }
 h4 { font-size: 1.2rem; }
 h5 { font-size: 1rem; }
 
-.notionate-table-home .notionate-table-column-0 .notionate-table-cell-inner {
+.rotion-table .rotion-table-column0 .rotion-table-cell-inner {
   width: 36rem;
 }
-.notionate-table-home .notionate-table-column-1 .notionate-table-cell-inner,
-.notionate-table-home .notionate-table-column-2 .notionate-table-cell-inner,
-.notionate-table-home .notionate-table-column-3 .notionate-table-cell-inner {
+.rotion-table .rotion-table-column1 .rotion-table-cell-inner,
+.rotion-table .rotion-table-column2 .rotion-table-cell-inner,
+.rotion-table .rotion-table-column3 .rotion-table-cell-inner {
   width: 7rem;
 }
-.notionate-table-home .notionate-table-column-4 .notionate-table-cell-inner,
-.notionate-table-home .notionate-table-column-5 .notionate-table-cell-inner {
+.rotion-table .rotion-table-column4 .rotion-table-cell-inner,
+.rotion-table .rotion-table-column5 .rotion-table-cell-inner {
   width: 18rem;
 }
-.notionate-table-home .notionate-table-row,
-.notionate-table-home .notionate-table-date {
+.rotion-table .rotion-table-row,
+.rotion-table .rotion-table-date {
   color: rgba(var(--foreground-rgb), 1);
 }
-.notionate-table-home .notionate-table-row {
+.rotion-table .rotion-table-row {
   border-top-color: rgba(100, 100, 100);
   box-shadow: black -3px 0 0, rgba(100, 100, 100) 0 1px 0;
 }
-.notionate-table-home .notionate-table-cell-inner {
+.rotion-table .rotion-table-cell-inner {
   border-right-color: rgba(var(--foreground-rgb), .1);
 }
-.fukuokago .notionate-blocks-text-anchor {
+.fukuokago .rotion-text-anchor {
   color: inherit;
   border-color: inherit;
 }
-.fukuokago .notionate-blocks-bookmark-inner {
+.fukuokago .rotion-bookmark-inner {
   border-color: rgba(var(--foreground-rgb), .3);
 }
-.fukuokago .notionate-blocks-bookmark-desc {
+.fukuokago .rotion-bookmark-desc {
   color: rgba(var(--foreground-rgb), .5);
 }
 
 @media (prefers-color-scheme: dark) {
-  .notionate-table-home .notionate-table-row,
-  .notionate-table-home .notionate-table-date {
+  .rotion-table .rotion-table-row,
+  .rotion-table .rotion-table-date {
     color: rgba(var(--foreground-rgb), .7);
   }
-  .fukuokago .notionate-blocks-bookmark-inner {
+  .fukuokago .rotion-bookmark-inner {
     border-color: rgba(var(--foreground-rgb), .7);
   }
-  .fukuokago .notionate-blocks-bookmark-desc {
+  .fukuokago .rotion-bookmark-desc {
     color: rgba(ar(--foreground-rgb), .7);
   }
 }

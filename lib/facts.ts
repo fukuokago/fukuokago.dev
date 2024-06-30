@@ -1,11 +1,10 @@
 import {
   FetchDatabase,
   QueryDatabaseParameters,
-  PersonUserObjectResponseEx,
   SelectPropertyResponse,
   RichTextItemResponse,
   DBPageBase,
-} from 'notionate'
+} from 'rotion'
 
 export type Fact = {
   id: string,
