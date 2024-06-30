@@ -1,5 +1,4 @@
-import type { GetStaticProps, NextPage } from 'next'
-import Link from 'next/link'
+import type { GetStaticProps } from 'next'
 import Image from 'next/image'
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
@@ -13,13 +12,12 @@ import { MakeOgImage } from '@/lib/ogimage'
 import {
   ListBlockChildrenResponseEx,
   QueryDatabaseResponseEx,
-  Link as NLink,
-} from 'notionate'
+} from 'rotion'
 import {
-  Blocks,
-  TextBlock,
+  Page,
+  RichText,
   Table,
-} from 'notionate/dist/components'
+} from 'rotion/ui'
 
 type Props = {
   about: ListBlockChildrenResponseEx,
@@ -85,7 +83,7 @@ export default function Home({ about, coc, eve, team, events, members, facts, og
 
       <main className={`fukuokago ${styles.main}`}>
         <div className={styles.aboutus}>
-          <Blocks blocks={about} />
+          <Page blocks={about} />
         </div>
 
         <div className={styles.facts}>
@@ -101,7 +99,9 @@ export default function Home({ about, coc, eve, team, events, members, facts, og
                   <span className={styles.factUnit}>{f.unit}</span>
                 </div>
                 <div className={styles.factDesc}>
-                  <TextBlock tag="span" block={f.description} />
+                  {f.description.map((v, i) => (
+                    <RichText textObject={v} key={`richtext-${i}`} />
+                  ))}
                 </div>
               </div>
             ))}
@@ -111,15 +111,15 @@ export default function Home({ about, coc, eve, team, events, members, facts, og
         <div className={`notionate-table-home ${styles.events}`}>
           <h2>Events</h2>
           <div className={styles.blocks}>
-            <Blocks blocks={eve} />
+            <Page blocks={eve} />
           </div>
-          <Table keys={['Name', 'Date', 'Speakers', 'Participant', 'Link', 'Venue']} db={events} href={''} link={Link as NLink} />
+          <Table keys={['Name', 'Date', 'Speakers', 'Participant', 'Link', 'Venue']} db={events} options={{ verticalLines: false }} />
         </div>
 
         <div className={styles.members}>
           <h2>Team</h2>
           <div className={styles.blocks}>
-            <Blocks blocks={team} />
+            <Page blocks={team} />
           </div>
           <div className={styles.memberCards}>
           {members.map((m, i) => (
@@ -161,7 +161,7 @@ export default function Home({ about, coc, eve, team, events, members, facts, og
         <div className={styles.coc}>
           <h2>Code of Conduct</h2>
           <div className={styles.blocks}>
-            <Blocks blocks={coc} />
+            <Page blocks={coc} />
           </div>
         </div>
       </main>

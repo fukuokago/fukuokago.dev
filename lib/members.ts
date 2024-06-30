@@ -5,7 +5,7 @@ import {
   DateResponse,
   RichTextItemResponse,
   DBPageBase,
-} from 'notionate'
+} from 'rotion'
 
 export type Member = {
   id: string

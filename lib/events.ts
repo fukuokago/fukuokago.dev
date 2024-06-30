@@ -2,7 +2,7 @@ import {
   FetchDatabase,
   QueryDatabaseResponseEx,
   QueryDatabaseParameters,
-} from 'notionate'
+} from 'rotion'
 
 export const GetEvents = async (): Promise<QueryDatabaseResponseEx> => {
   return await FetchDatabase({
@@ -10,4 +10,3 @@ export const GetEvents = async (): Promise<QueryDatabaseResponseEx> => {
     sorts: [ { property: 'Date', direction: 'descending' }, ],
   } as QueryDatabaseParameters)
 }
-
