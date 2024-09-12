@@ -175,4 +175,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
+  .linkIcons svg  {
+    fill: var(--foreground-color);
+  }
 }
