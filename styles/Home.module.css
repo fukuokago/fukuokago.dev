@@ -1,7 +1,7 @@
 .main {
   display: flex;
   flex-direction: column;
-  align: center;
+  text-align: left;
   padding: 0 6rem 6rem;
   min-height: 100vh;
 }
