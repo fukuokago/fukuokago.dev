@@ -40,7 +40,7 @@ jobs:
         node-version: 22
         cache: npm
     - name: Restore next cache
-      uses: actions/cache@v4.0.0
+      uses: actions/cache@v4
       with:
         path: |
           .next/cache
@@ -48,7 +48,7 @@ jobs:
         restore-keys: |
           nextjs-${{ hashFiles('**/package-lock.json') }}-
     - name: Restore rotion cache
-      uses: actions/cache@v4.0.0
+      uses: actions/cache@v4
       with:
         path: |
           .cache
@@ -83,7 +83,7 @@ jobs:
         node-version: 22
         cache: npm
     - name: Restore next cache
-      uses: actions/cache@v4.0.0
+      uses: actions/cache@v4
       with:
         path: |
           .next/cache
@@ -91,7 +91,7 @@ jobs:
         restore-keys: |
           nextjs-${{ hashFiles('**/package-lock.json') }}-
     - name: Restore rotion cache
-      uses: actions/cache@v4.0.0
+      uses: actions/cache@v4
       with:
         path: |
           .cache
